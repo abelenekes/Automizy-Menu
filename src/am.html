@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="am.css">
+    <script src="vendor/requirejs/require.js"></script>
+    <script src="am.js"></script>
+    <script>
+
+        require([
+            "js/core/init",
+            "js/events/ready"
+        ], function () {
+            $AM.init().ready(function () {
+
+                $AM.$widget.appendTo('body');
+                $AM.logo('https://app.automizy.com/images/logo-automizy.png', 'https://app.automizy.com/images/logo-automizy-normal.png');
+
+
+
+                var dashboard = $AM.addMenuItem().name('dashboards').icon('fa-dashboard').html('Dashboards');
+                var contacts = $AM.addMenuItem().name('contacts').icon('fa-users').html('Contacts');
+                var bulkEmails = $AM.addMenuItem().name('bulkEmails').icon('fa-paper-plane-o').html('Bulk emails');
+                var automation = $AM.addMenuItem().name('automation').icon('fa-flash').html('Automation');
+                var settings = $AM.addMenuItem().name('settings').icon('fa-cogs').html('Settings');
+
+                dashboard.addSubMenu().html('Bulk email overview').name('bulkEmailOverview').click(function () {
+                    alert('ok')
+                });
+                dashboard.addSubMenu().html('Automation overview').name('automationOverview').click(function () {
+                    alert('ok')
+                });
+
+                contacts.addSubMenu().html('Complete list').name('contactList').click(function () {
+                    alert('ok')
+                });
+                contacts.addSubMenu().html('Segments').name('segmentList').click(function () {
+                    alert('ok')
+                });
+                contacts.addSubMenu().html('Custom fields').name('customFields').click(function () {
+                    alert('ok')
+                });
+                contacts.addSubMenu().html('Lead scoring').name('leadScoring').click(function () {
+                    alert('ok')
+                });
+                contacts.addSubMenu().html('Forms').name('forms').click(function () {
+                    alert('ok')
+                });
+                contacts.addSubMenu().html('Import history').name('importHistory').click(function () {
+                    alert('ok')
+                });
+
+
+
+                $AM.subMenuList.automationOverview.active();
+
+
+
+            })
+        });
+    </script>
+</head>
+<body style="margin:0">
+
+</body>
+</html>
