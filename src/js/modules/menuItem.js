@@ -5,7 +5,11 @@ define([
         var t = this;
         t.d = {
             $widget: $('<div class="automizy-menu-menuitem"></div>'),
-            $menuItemBox: $('<div class="automizy-menu-menuitem-box"></div>'),
+            $menuItemBox: $('<table class="automizy-menu-menuitem-box" cellpadding="0" cellspacing="0" border="0"></table>'),
+            $menuItemRow: $('<tr></tr>'),
+            $menuItemIconCell: $('<td class="automizy-menu-menuitem-icon-cell"></td>'),
+            $menuItemContentCell: $('<td class="automizy-menu-menuitem-content-cell"></td>'),
+            $menuItemArrowCell: $('<td class="automizy-menu-menuitem-arrow-cell"></td>'),
             $icon: $('<span class="automizy-menu-menuitem-icon fa fa-flash"></span>'),
             $content: $('<span class="automizy-menu-menuitem-content"></span>'),
             $arrow: $('<span class="automizy-menu-menuitem-arrow fa fa-angle-right"></span>'),
@@ -16,18 +20,26 @@ define([
             content: '',
             icon: 'fa fa-flash',
             name: '',
+            click:function(){},
 
             subMenus: []
         };
 
         t.d.$menuItemBox.appendTo(t.d.$widget);
-        t.d.$icon.appendTo(t.d.$menuItemBox);
-        t.d.$content.appendTo(t.d.$menuItemBox);
-        t.d.$arrow.appendTo(t.d.$menuItemBox);
+        t.d.$menuItemRow.appendTo(t.d.$menuItemBox);
+        t.d.$menuItemIconCell.appendTo(t.d.$menuItemRow);
+        t.d.$menuItemContentCell.appendTo(t.d.$menuItemRow);
+        t.d.$menuItemArrowCell.appendTo(t.d.$menuItemRow);
+        t.d.$icon.appendTo(t.d.$menuItemIconCell);
+        t.d.$content.appendTo(t.d.$menuItemContentCell);
+        t.d.$arrow.appendTo(t.d.$menuItemArrowCell);
         t.d.$subMenuItemBox.appendTo(t.d.$widget);
 
         t.d.$menuItemBox.click(function () {
-            t.toggle();
+            t.click();
+            if(t.d.subMenus.length > 0) {
+                t.toggle();
+            }
         })
     };
 
@@ -69,6 +81,16 @@ define([
         } else {
             t.close();
         }
+        return t;
+    };
+
+    p.click = function (clickFunction) {
+        var t = this;
+        if (typeof clickFunction !== 'undefined') {
+            t.d.click = clickFunction;
+            return t;
+        }
+        t.d.click.apply(t, [t]);
         return t;
     };
 
