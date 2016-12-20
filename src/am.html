@@ -22,6 +22,10 @@
                 var bulkEmails = $AM.addMenuItem().name('bulkEmails').icon('fa-paper-plane-o').html('Bulk emails');
                 var automation = $AM.addMenuItem().name('automation').icon('fa-flash').html('Automation');
                 var settings = $AM.addMenuItem().name('settings').icon('fa-cogs').html('Settings');
+                $AM.addSeparator();
+                var academy = $AM.addMenuItem().name('academy').icon('fa-graduation-cap').html('Automizy Academy').click(function(){
+                    alert('Open academy page');
+                });
 
                 dashboard.addSubMenu().html('Bulk email overview').name('bulkEmailOverview').click(function () {
                     alert('ok')

@@ -13,6 +13,7 @@ require([
     "js/events/ready",
 
     "js/functions/addMenuItem",
+    "js/functions/addSeparator",
     "js/functions/logo",
     "js/functions/logoNormal",
     "js/functions/logoIcon",

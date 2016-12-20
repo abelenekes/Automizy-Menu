@@ -1,5 +1,5 @@
 #automizy-menu{
-    font-size:13px;
+    font-size:15px;
     width:100%;
     box-shadow: 0 1px 1px #eaeaea;
     -webkit-box-shadow: 0 1px 1px #eaeaea;
@@ -51,9 +51,17 @@
 #automizy-menu-menuitem-box{
     margin: 0;
     padding: 5px 20px;
-    font-size:13px;
     overflow: auto;
     max-height: 100%;
+}
+
+.automizy-menu-separator{
+    position: relative;
+    background: #d8d8d8;
+    overflow: hidden;
+    height: 1px;
+    margin: 10px 0 10px 0;
+    padding: 0;
 }
 
 .automizy-menu-menuitem{
@@ -65,28 +73,45 @@
     padding:9px 9px 9px 0;
     margin:6px 0 0 0;
     border:1px solid transparent;
-    color: #a9a9a9;
+    color: #333333;
+    width: 100%;
 }
 .automizy-menu-menuitem-box:hover,
 .automizy-menu-menuitem.automizy-active .automizy-menu-menuitem-box{
     border-color: #d0d0d0;
 }
+
+.automizy-menu-menuitem .automizy-menu-menuitem-icon-cell{
+    width: 32px;
+    text-align:left;
+    vertical-align: middle;
+}
 .automizy-menu-menuitem .automizy-menu-menuitem-icon{
-    color:#f46a1f;
+    color:#ff5a00;
     font-size:16px !important;
     width: 32px;
     text-align: center;
-    padding:0 8px 0 0;
+    padding:0 8px 0 4px;
+}
+
+.automizy-menu-menuitem .automizy-menu-menuitem-content-cell{
+    text-align:left;
+    vertical-align: middle;
 }
 .automizy-menu-menuitem .automizy-menu-menuitem-content{
 
 }
 .automizy-menu-menuitem .automizy-menu-menuitem-box:hover,
 .automizy-menu-menuitem.automizy-active .automizy-menu-menuitem-box{
-    color:#f46a1f;
+    color:#ff5a00;
+}
+
+.automizy-menu-menuitem .automizy-menu-menuitem-arrow-cell{
+    text-align:right;
+    vertical-align: middle;
 }
 .automizy-menu-menuitem .automizy-menu-menuitem-arrow{
-    float: right;
+
 }
 
 .automizy-menu-submenuitem-list{
@@ -100,16 +125,15 @@
 }
 
 .automizy-menu-submenuitem{
-    color: #a9a9a9;
+    color: #333333;
     cursor:pointer;
     border-bottom: 1px solid #f6f7f8;
     padding:7px 0 7px 0;
     margin: 0;
-    font-family: Arial, sans-serif;
 }
 .automizy-menu-submenuitem.automizy-active,
 .automizy-menu-submenuitem:hover{
-    color: #f46a1f;
+    color: #ff5a00;
     background-color:#fcfdfe;
 }
 .automizy-menu-submenuitem:last-child{
@@ -121,8 +145,9 @@
 .automizy-menu-submenuitem-icon{
     opacity: 0.3;
     font-size: 8px !important;
-    margin: 0 8px 0 35px;
+    margin: 0 12px 0 35px;
+    vertical-align: middle;
 }
 .automizy-menu-submenuitem-content{
-
+    vertical-align: middle;
 }
