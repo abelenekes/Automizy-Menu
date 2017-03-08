@@ -581,7 +581,7 @@
     p.single = function(single){
         var t = this;
         if (typeof single !== 'undefined') {
-            t.d.single = $A.parseBoolean(single);
+            t.d.single = single || false;
             t.widget().toggleClass('automizy-menu-menuitem-single', t.d.single);
             t.setDisplay();
             return t;
@@ -601,7 +601,7 @@
     p.visibility = function(visibility){
         var t = this;
         if (typeof visibility !== 'undefined') {
-            t.d.visibility = $A.parseBoolean(visibility || false);
+            t.d.visibility = visibility || false;
             if (t.d.visibility) {
                 t.show();
             } else {
@@ -763,7 +763,7 @@
     p.visibility = function(visibility){
         var t = this;
         if (typeof visibility !== 'undefined') {
-            t.d.visibility = $A.parseBoolean(visibility || false);
+            t.d.visibility = visibility || false;
             if (t.d.visibility) {
                 t.show();
             } else {
