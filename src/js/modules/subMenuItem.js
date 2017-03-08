@@ -4,9 +4,9 @@ define([
     $AM.modules.subMenuItem = function () {
         var t = this;
         t.d = {
-            $widget: $('<div class="automizy-menu-submenuitem"></div>'),
-            $icon: $('<span class="automizy-menu-submenuitem-icon fa fa-circle"></span>'),
-            $content: $('<span class="automizy-menu-submenuitem-content"></span>'),
+            $widget: $('<div class="automizy-menu-submenu-item"></div>'),
+            $icon: $('<span class="automizy-menu-submenu-item-icon fa fa-circle"></span>'),
+            $content: $('<span class="automizy-menu-submenu-item-content"></span>'),
 
             parent: false,
 
@@ -54,7 +54,7 @@ define([
 
     p.active = function(){
         var t = this;
-        $AM.$menuBox.find('.automizy-menu-submenuitem').removeClass('automizy-active');
+        $AM.$menuBox.find('.automizy-menu-submenu-item').removeClass('automizy-active');
         t.widget().addClass('automizy-active');
         t.parent().open();
         return t;

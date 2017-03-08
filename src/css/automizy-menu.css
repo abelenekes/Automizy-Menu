@@ -13,20 +13,18 @@
     width:100%;
     height: 100%;
 }
-#automizy-menu-td1{
+#automizy-menu-header{
     height:60px;
     vertical-align: middle;
     padding: 9px 9px 9px 25px;
     box-shadow: 0 1px 1px #eaeaea;
     -webkit-box-shadow: 0 1px 1px #eaeaea;
 }
-#automizy-menu-td2{
+#automizy-menu-item-list{
     vertical-align: top;
 }
 #automizy-widget-top{
     background: #ffffff;
-    box-shadow: 0 1px 1px #eaeaea;
-    -webkit-box-shadow: 0 1px 1px #eaeaea;
     cursor: pointer;
 }
 #automizy-menu-logo-box{
@@ -48,7 +46,7 @@
 #automizy-menu-openclose-icon{
     vertical-align: middle;
 }
-#automizy-menu-menuitem-box{
+#automizy-menu-item-box{
     margin: 0;
     padding: 5px 20px;
     overflow: auto;
@@ -64,10 +62,10 @@
     padding: 0;
 }
 
-.automizy-menu-menuitem{
+.automizy-menu-item{
 
 }
-.automizy-menu-menuitem .automizy-menu-menuitem-box{
+.automizy-menu-item .automizy-menu-item-box{
     cursor:pointer;
     border-radius: 3px;
     padding:9px 9px 9px 0;
@@ -76,17 +74,17 @@
     color: #555a60;
     width: 100%;
 }
-.automizy-menu-menuitem-box:hover,
-.automizy-menu-menuitem.automizy-active .automizy-menu-menuitem-box{
+.automizy-menu-item-box:hover,
+.automizy-menu-item.automizy-active .automizy-menu-item-box{
     border-color: #d0d0d0;
 }
 
-.automizy-menu-menuitem .automizy-menu-menuitem-icon-cell{
+.automizy-menu-item .automizy-menu-item-icon-cell{
     width: 32px;
     text-align:left;
     vertical-align: middle;
 }
-.automizy-menu-menuitem .automizy-menu-menuitem-icon{
+.automizy-menu-item .automizy-menu-item-icon{
     color:#ff5a00;
     font-size:16px !important;
     width: 32px;
@@ -94,27 +92,27 @@
     padding:0 8px 0 4px;
 }
 
-.automizy-menu-menuitem .automizy-menu-menuitem-content-cell{
+.automizy-menu-item .automizy-menu-item-content-cell{
     text-align:left;
     vertical-align: middle;
 }
-.automizy-menu-menuitem .automizy-menu-menuitem-content{
+.automizy-menu-item .automizy-menu-item-content{
 
 }
-.automizy-menu-menuitem .automizy-menu-menuitem-box:hover,
-.automizy-menu-menuitem.automizy-active .automizy-menu-menuitem-box{
+.automizy-menu-item .automizy-menu-item-box:hover,
+.automizy-menu-item.automizy-active .automizy-menu-item-box{
     color:#ff5a00;
 }
 
-.automizy-menu-menuitem .automizy-menu-menuitem-arrow-cell{
+.automizy-menu-item .automizy-menu-item-arrow-cell{
     text-align:right;
     vertical-align: middle;
 }
-.automizy-menu-menuitem .automizy-menu-menuitem-arrow{
+.automizy-menu-item .automizy-menu-item-arrow{
 
 }
 
-.automizy-menu-submenuitem-list{
+.automizy-menu-submenu-item-list{
     display:none;
     background: #FFFFFF;
     border: 1px solid #f6f7f8;
@@ -124,30 +122,30 @@
     padding: 0;
 }
 
-.automizy-menu-submenuitem{
+.automizy-menu-submenu-item{
     color: #555a60;
     cursor:pointer;
     border-bottom: 1px solid #f6f7f8;
     padding:7px 0 7px 0;
     margin: 0;
 }
-.automizy-menu-submenuitem.automizy-active,
-.automizy-menu-submenuitem:hover{
+.automizy-menu-submenu-item.automizy-active,
+.automizy-menu-submenu-item:hover{
     color: #ff5a00;
     background-color:#fcfdfe;
 }
-.automizy-menu-submenuitem:last-child{
+.automizy-menu-submenu-item:last-child{
     border-bottom:none;
 }
-.automizy-menu-submenuitem:hover{
+.automizy-menu-submenu-item:hover{
 
 }
-.automizy-menu-submenuitem-icon{
+.automizy-menu-submenu-item-icon{
     opacity: 0.3;
     font-size: 8px !important;
     margin: 0 12px 0 35px;
     vertical-align: middle;
 }
-.automizy-menu-submenuitem-content{
+.automizy-menu-submenu-item-content{
     vertical-align: middle;
 }

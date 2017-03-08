@@ -4,17 +4,17 @@ define([
     $AM.modules.menuItem = function () {
         var t = this;
         t.d = {
-            $widget: $('<div class="automizy-menu-menuitem"></div>'),
-            $menuItemBox: $('<table class="automizy-menu-menuitem-box" cellpadding="0" cellspacing="0" border="0"></table>'),
+            $widget: $('<div class="automizy-menu-item"></div>'),
+            $menuItemBox: $('<table class="automizy-menu-item-box" cellpadding="0" cellspacing="0" border="0"></table>'),
             $menuItemRow: $('<tr></tr>'),
-            $menuItemIconCell: $('<td class="automizy-menu-menuitem-icon-cell"></td>'),
-            $menuItemContentCell: $('<td class="automizy-menu-menuitem-content-cell"></td>'),
-            $menuItemArrowCell: $('<td class="automizy-menu-menuitem-arrow-cell"></td>'),
-            $icon: $('<span class="automizy-menu-menuitem-icon fa fa-flash"></span>'),
-            $content: $('<span class="automizy-menu-menuitem-content"></span>'),
-            $arrow: $('<span class="automizy-menu-menuitem-arrow fa fa-angle-right"></span>'),
+            $menuItemIconCell: $('<td class="automizy-menu-item-icon-cell"></td>'),
+            $menuItemContentCell: $('<td class="automizy-menu-item-content-cell"></td>'),
+            $menuItemArrowCell: $('<td class="automizy-menu-item-arrow-cell"></td>'),
+            $icon: $('<span class="automizy-menu-item-icon fa fa-flash"></span>'),
+            $content: $('<span class="automizy-menu-item-content"></span>'),
+            $arrow: $('<span class="automizy-menu-item-arrow fa fa-angle-right"></span>'),
 
-            $subMenuItemBox: $('<div class="automizy-menu-submenuitem-list"></div>'),
+            $subMenuItemBox: $('<div class="automizy-menu-submenu-item-list"></div>'),
 
             opened: false,
             content: '',
@@ -37,9 +37,7 @@ define([
 
         t.d.$menuItemBox.click(function () {
             t.click();
-            if(t.d.subMenus.length > 0) {
-                t.toggle();
-            }
+            t.toggle();
         })
     };
 
@@ -61,17 +59,20 @@ define([
         var t = this;
         $AM.closeAllMenu();
         t.d.opened = true;
-        t.widget().addClass('automizy-active');
-        t.d.$subMenuItemBox.stop().slideDown();
-        t.d.$arrow.removeClass('fa-angle-right').addClass('fa-angle-down');
+        t.active();
+        if(t.d.subMenus.length > 0){
+            t.d.$subMenuItemBox.stop().slideDown();
+            t.d.$arrow.removeClass('fa-angle-right').addClass('fa-angle-down');
+        }
         return t;
     };
     p.close = function () {
         var t = this;
         t.d.opened = false;
-        t.d.$subMenuItemBox.stop().slideUp();
-        t.widget().removeClass('automizy-active');
-        t.d.$arrow.removeClass('fa-angle-down').addClass('fa-angle-right');
+        if(t.d.subMenus.length > 0){
+            t.d.$subMenuItemBox.stop().slideUp();
+            t.d.$arrow.removeClass('fa-angle-down').addClass('fa-angle-right');
+        }
         return t;
     };
     p.toggle = function () {
@@ -81,6 +82,14 @@ define([
         } else {
             t.close();
         }
+        return t;
+    };
+
+    p.active = function(){
+        var t = this;
+        $AM.$menuItemList.find('.automizy-menu-item').removeClass('automizy-active');
+        t.widget().addClass('automizy-active');
+        //t.open();
         return t;
     };
 
