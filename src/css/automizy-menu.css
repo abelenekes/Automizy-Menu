@@ -74,7 +74,7 @@
     padding:9px 9px 9px 0;
     margin:6px 0 0 0;
     border:1px solid transparent;
-    color: #333333;
+    color: #555a60;
     width: 100%;
 }
 .automizy-menu-menuitem-box:hover,
@@ -130,7 +130,7 @@
 }
 
 .automizy-menu-submenuitem{
-    color: #333333;
+    color: #555a60;
     cursor:pointer;
     border-bottom: 1px solid #f6f7f8;
     padding:7px 0 7px 0;
