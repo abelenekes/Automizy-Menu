@@ -17,6 +17,8 @@ define([
             $subMenuItemBox: $('<div class="automizy-menu-submenuitem-list"></div>'),
 
             opened: false,
+            single:false,
+            visibility:true,
             content: '',
             icon: 'fa fa-flash',
             name: '',
@@ -40,7 +42,9 @@ define([
             if(t.d.subMenus.length > 0) {
                 t.toggle();
             }
-        })
+        });
+
+        t.setDisplay();
     };
 
 
@@ -137,10 +141,57 @@ define([
         return t.d.icon || false;
     };
 
+    p.single = function(single){
+        var t = this;
+        if (typeof single !== 'undefined') {
+            t.d.single = $A.parseBoolean(single);
+            t.widget().toggleClass('automizy-menu-menuitem-single', t.d.single);
+            t.setDisplay();
+            return t;
+        }
+        return t.d.single;
+    };
+    p.hide = function(){
+        var t = this;
+        t.widget().hide();
+        return t;
+    };
+    p.show = function(){
+        var t = this;
+        t.widget().show();
+        return t;
+    };
+    p.visibility = function(visibility){
+        var t = this;
+        if (typeof visibility !== 'undefined') {
+            t.d.visibility = $A.parseBoolean(visibility || false);
+            if (t.d.visibility) {
+                t.show();
+            } else {
+                t.hide();
+            }
+            return t;
+        }
+        return t.d.visibility;
+    };
+    p.setDisplay = function(){
+        var t = this;
+        if(!t.d.visibility){
+            return t;
+        }
+        if(t.d.subMenus.length > 0 || t.single()) {
+            t.show();
+        }else{
+            t.hide();
+        }
+        return t;
+    };
+
     p.addSubMenu = function () {
         var t = this;
         var subMenuItem = (new $AM.modules.subMenuItem);
         subMenuItem.parent(t);
+        t.setDisplay();
         return subMenuItem;
     };
 
@@ -148,9 +199,10 @@ define([
         var t = this;
         for (var i = 0; i < t.d.subMenus.length; i++) {
             if (t.d.subMenus[i].name === name) {
-                t.d.subMenus[i].remove();
+                t.d.subMenus[i].removeFromParent();
             }
         }
+        t.setDisplay();
         return t;
     }
 

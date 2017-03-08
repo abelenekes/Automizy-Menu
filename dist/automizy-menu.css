@@ -35,7 +35,7 @@
 }
 #automizy-menu-logo-normal{
     vertical-align: middle;
-    max-height: 24px;
+    max-height: 40px;
 }
 #automizy-menu-mobile-openclose-icon{
     vertical-align: middle;
@@ -53,6 +53,7 @@
     padding: 5px 20px;
     overflow: auto;
     max-height: 100%;
+    height:100%;
 }
 .automizy-menu-separator{
     position: relative;
@@ -70,7 +71,7 @@
     padding:9px 9px 9px 0;
     margin:6px 0 0 0;
     border:1px solid transparent;
-    color: #333333;
+    color: #555a60;
     width: 100%;
 }
 .automizy-menu-menuitem-box:hover,
@@ -105,6 +106,9 @@
 }
 .automizy-menu-menuitem .automizy-menu-menuitem-arrow{
 }
+.automizy-menu-menuitem.automizy-menu-menuitem-single .automizy-menu-menuitem-arrow{
+    display:none;
+}
 .automizy-menu-submenuitem-list{
     display:none;
     background: #FFFFFF;
@@ -115,7 +119,7 @@
     padding: 0;
 }
 .automizy-menu-submenuitem{
-    color: #333333;
+    color: #555a60;
     cursor:pointer;
     border-bottom: 1px solid #f6f7f8;
     padding:7px 0 7px 0;
