@@ -12,6 +12,7 @@ define([
 
             click: function () {},
 
+            visibility:true,
             content: '',
             icon: 'fa fa-circle',
             name: ''
@@ -104,6 +105,30 @@ define([
         return t.d.icon || false;
     };
 
+    p.hide = function(){
+        var t = this;
+        t.widget().hide();
+        return t;
+    };
+    p.show = function(){
+        var t = this;
+        t.widget().show();
+        return t;
+    };
+    p.visibility = function(visibility){
+        var t = this;
+        if (typeof visibility !== 'undefined') {
+            t.d.visibility = $A.parseBoolean(visibility || false);
+            if (t.d.visibility) {
+                t.show();
+            } else {
+                t.hide();
+            }
+            return t;
+        }
+        return t.d.visibility;
+    };
+
     p.parent = function (parent) {
         var t = this;
         if (typeof parent !== 'undefined') {
@@ -119,10 +144,12 @@ define([
         var t = this;
         if (t.d.parent !== false) {
             for (var i = 0; i < t.d.parent.d.subMenus.length; i++) {
-                if (t.d.parent.d.subMenus[i].name === t.name()) {
+                if (t.d.parent.d.subMenus[i].name() === t.name()) {
                     t.d.parent.d.subMenus.splice(i, 1);
+                    t.widget().appendTo($AM.$tmp);
                 }
             }
+            t.d.parent.setDisplay();
         }
         return t;
     };

@@ -33,7 +33,7 @@
 }
 #automizy-menu-logo-normal{
     vertical-align: middle;
-    max-height: 24px;
+    max-height: 40px;
 }
 #automizy-menu-mobile-openclose-icon{
     vertical-align: middle;
@@ -51,6 +51,7 @@
     padding: 5px 20px;
     overflow: auto;
     max-height: 100%;
+    height:100%;
 }
 
 .automizy-menu-separator{
@@ -112,7 +113,11 @@
 
 }
 
-.automizy-menu-submenu-item-list{
+.automizy-menu-item.automizy-menu-item-single .automizy-menu-item-arrow{
+    display:none;
+}
+
+.automizy-menu-submenuitem-list{
     display:none;
     background: #FFFFFF;
     border: 1px solid #f6f7f8;
