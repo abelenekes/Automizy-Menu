@@ -23,7 +23,7 @@
                 var automation = $AM.addMenuItem().name('automation').icon('fa-flash').html('Automation');
                 var settings = $AM.addMenuItem().name('settings').icon('fa-cogs').html('Settings');
                 $AM.addSeparator();
-                var academy = $AM.addMenuItem().name('academy').icon('fa-graduation-cap').html('Automizy Academy').click(function(){
+                var academy = $AM.addMenuItem().name('academy').icon('fa-graduation-cap').html('Automizy Academy').single(true).click(function(){
                     alert('Open academy page');
                 });
 
