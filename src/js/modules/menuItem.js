@@ -154,7 +154,7 @@ define([
         var t = this;
         if (typeof single !== 'undefined') {
             t.d.single = $A.parseBoolean(single);
-            t.widget().toggleClass('automizy-menu-menuitem-single', t.d.single);
+            t.widget().toggleClass('automizy-menu-item-single', t.d.single);
             t.setDisplay();
             return t;
         }
