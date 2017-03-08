@@ -118,7 +118,7 @@ define([
     p.visibility = function(visibility){
         var t = this;
         if (typeof visibility !== 'undefined') {
-            t.d.visibility = $A.parseBoolean(visibility || false);
+            t.d.visibility = visibility || false;
             if (t.d.visibility) {
                 t.show();
             } else {
