@@ -832,7 +832,7 @@
         $AM.$logoNormal = $('<img id="automizy-menu-logo-normal" src="" />').appendTo($AM.$logoBox);
         $AM.$mobileOpenCloseIcon = $('<span id="automizy-menu-mobile-openclose-icon"></span>').appendTo($AM.$widgetTop);
         $AM.$logoIcon = $('<img id="automizy-menu-logo-icon" src="" />').appendTo($AM.$logoBox);
-        $AM.$openCloseIcon = $('<span id="automizy-menu-openclose-icon"></span>').appendTo($AM.$widgetTop);
+        $AM.$toggleIcon = $('<span id="automizy-menu-openclose-icon"></span>').appendTo($AM.$widgetTop);
 
 
         $AM.$menuBox = $('<div id="automizy-menu-menuitem-box"></div>').appendTo($AM.$menuItemList);

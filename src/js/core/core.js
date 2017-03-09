@@ -19,7 +19,9 @@ define([], function () {
             url:'https://app.automizy.com'
         };
         t.m = {};
-        t.d = {};
+        t.d = {
+            minimized: false
+        };
     }();
     return $AM;
 });

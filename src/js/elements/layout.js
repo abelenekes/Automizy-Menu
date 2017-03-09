@@ -15,6 +15,7 @@ define([
     "js/functions/logo",
     "js/functions/logoNormal",
     "js/functions/logoIcon",
+    "js/functions/toggle",
 
     "js/modules/menuItem",
     "js/modules/subMenuItem"
@@ -23,7 +24,7 @@ define([
 
         $AM.$tmp = $('<div id="automizy-menu-tmp"></div>');
 
-        $AM.$widget = $('<div id="automizy-menu" class="automizy-menu-closed"></div>');
+        $AM.$widget = $('<div id="automizy-menu"></div>');
         $AM.$widgetTable = $('<table cellpadding="0" cellspacing="0" border="0" id="automizy-menu-table"></table>').appendTo($AM.$widget);
 
         /*The menu header*/
@@ -42,10 +43,13 @@ define([
         $AM.$logoNormal = $('<img id="automizy-menu-logo-normal" src="" />').appendTo($AM.$logoBox);
         $AM.$mobileOpenCloseIcon = $('<span id="automizy-menu-mobile-openclose-icon"></span>').appendTo($AM.$widgetTop);
         $AM.$logoIcon = $('<img id="automizy-menu-logo-icon" src="" />').appendTo($AM.$logoBox);
-        $AM.$openCloseIcon = $('<span id="automizy-menu-openclose-icon" title="Close sidebar" class="fa fa-outdent"></span>').appendTo($AM.$widgetTop);
+        $AM.$toggleIcon = $('<span id="automizy-menu-toggle-icon" title="Close sidebar" class="fa fa-outdent"></span>').appendTo($AM.$widgetTop);
 
 
         $AM.$menuBox = $('<div id="automizy-menu-item-box"></div>').appendTo($AM.$menuItemList);
+
+
+        $AM.$toggleIcon.click($AM.toggle);
 
 
         $AM.layoutReady();

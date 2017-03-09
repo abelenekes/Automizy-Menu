@@ -1,10 +1,10 @@
 #automizy-menu {
     font-size: 15px;
     width: 100%;
-    box-shadow: 0 1px 1px #eaeaea;
-    -webkit-box-shadow: 0 1px 1px #eaeaea;
     height: 100%;
     background-color: #ffffff;
+    min-width: 300px;
+    position: relative;
 }
 
 #automizy-menu * {
@@ -14,6 +14,11 @@
 #automizy-menu-table {
     width: 100%;
     height: 100%;
+    table-layout: fixed;
+    box-shadow: 0 1px 1px #eaeaea;
+    -webkit-box-shadow: 0 1px 1px #eaeaea;
+    -moz-box-shadow: 0 1px 1px #eaeaea;
+    background-color: #FFFFFF;
 }
 
 #automizy-menu-header {
@@ -53,7 +58,7 @@
     display: none;
 }
 
-#automizy-menu-openclose-icon {
+#automizy-menu-toggle-icon {
     vertical-align: middle;
     float: right;
     font-size: 17px !important;
@@ -72,7 +77,7 @@
     transition: opacity, border-color, background-color 0.2s;
 }
 
-#automizy-menu-openclose-icon:hover {
+#automizy-menu-toggle-icon:hover {
     opacity: 0.85;
     border-color: #d0d0d0;
     color: #ff5a00;
@@ -81,7 +86,8 @@
 #automizy-menu-item-box {
     margin: 0;
     padding: 5px 20px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 100%;
     height: 100%;
 }
@@ -167,6 +173,9 @@
     border-bottom: 1px solid #f6f7f8;
     padding: 7px 0 7px 0;
     margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .automizy-menu-submenu-item.automizy-active,
@@ -194,55 +203,100 @@
     vertical-align: middle;
 }
 
-/*Closed state*/
+/*Minimized state*/
 
-#automizy-menu.automizy-menu-closed {
-    max-width: 100px;
+#automizy-menu,
+#automizy-menu-table {
+    -webkit-transition: min-width 0.5s ease;
+    -moz-transition: min-width 0.5s ease;
+    -ms-transition: min-width 0.5s ease;
+    -o-transition: min-width 0.5s ease;
+    transition: min-width 0.5s ease;
 }
 
-#automizy-menu.automizy-menu-closed #automizy-menu-header {
+#automizy-menu-table {
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+}
+
+@keyframes menuTablePosition {
+    from {
+        position: inherit;
+    }
+    to {
+        position: absolute;
+    }
+}
+
+#automizy-menu.automizy-menu-minimized {
+    min-width: 100px;
+}
+
+#automizy-menu.automizy-menu-minimized #automizy-menu-table {
+    top: 0;
+    animation: menuTablePosition 0s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#automizy-menu.automizy-menu-minimized #automizy-menu-header {
     padding: 0;
 }
 
-#automizy-menu.automizy-menu-closed #automizy-widget-top {
+#automizy-menu.automizy-menu-minimized #automizy-widget-top {
     text-align: center;
 }
 
-#automizy-menu.automizy-menu-closed #automizy-menu-logo-normal {
+#automizy-menu.automizy-menu-minimized #automizy-menu-logo-normal {
     display: none;
 }
 
-#automizy-menu.automizy-menu-closed #automizy-menu-openclose-icon {
+#automizy-menu.automizy-menu-minimized #automizy-menu-toggle-icon {
     float: none;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-item .automizy-menu-item-content-cell {
+/*Minimized & Open state*/
+
+#automizy-menu.automizy-menu-minimized.automizy-menu-opened #automizy-menu-table {
+    width: 300px;
+}
+
+/*Minimized & Closed state*/
+
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed #automizy-menu-table {
+    width: 100px;
+}
+
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed .automizy-menu-item .automizy-menu-item-content-cell {
     display: none;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-item-box {
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed .automizy-menu-item-box {
     padding: 0;
     width: 48px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-item-arrow-cell {
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed .automizy-menu-item-arrow-cell {
     display: none;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-submenu-item-list {
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed .automizy-menu-submenu-item-list {
     display: none !important;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-item .automizy-menu-item-icon-cell {
+#automizy-menu.automizy-menu-minimized.automizy-menu-closed .automizy-menu-item .automizy-menu-item-icon-cell {
     width: auto;
     text-align: center;
     vertical-align: middle;
     height: 46px;
 }
 
-#automizy-menu.automizy-menu-closed .automizy-menu-item .automizy-menu-item-icon {
+#automizy-menu.automizy-menu-minimized .automizy-menu-item .automizy-menu-item-icon {
     margin: 0 auto;
     float: none;
     font-size: 20px !important;
